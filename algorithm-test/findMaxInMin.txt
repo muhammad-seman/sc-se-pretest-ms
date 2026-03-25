@@ -1,0 +1,40 @@
+function findMaxInMin(arr, int) {
+    // Validasi input
+    if (arr.length == 0 || int < 1) {
+        return null;
+    }
+
+    let max_of_mins = -INFINITY;
+    let deque = []; // Digunakan untuk menyimpan array dari indeks
+
+    for (let i = 0; i < arr.length; i++) {
+        // 1. Buang elemen terdepan dari deque jika indeksnya 
+        // sudah di luar window (subset) saat ini
+        while (deque.length > 0 && deque[0] < i - int + 1) {
+            deque.shift(); // hapus elemen pertama
+        }
+
+        // 2. Buang elemen dari belakang deque yang nilainya lebih besar
+        // atau sama dengan elemen saat ini arr[i]. 
+        // (Elemen besar tersebut tidak berguna lagi sebagai kandidat minimum)
+        while (deque.length > 0 && arr[deque[deque.length - 1]] >= arr[i]) {
+            deque.pop(); // hapus elemen terakhir
+        }
+
+        // Tambahkan indeks saat ini ke belakang deque
+        deque.push(i);
+
+        // 3. Jika posisi index i sudah membentuk minimal 1 subset (window)
+        if (i >= int - 1) {
+            // Nilai minimum absolut pada subset saat ini selalu berada di paling depan deque
+            let current_min = arr[deque[0]];
+            
+            // Catat nilai terbesar dari nilai-nilai minimum yang ditemukan
+            if (current_min > max_of_mins) {
+                max_of_mins = current_min;
+            }
+        }
+    }
+
+    return max_of_mins;
+}
