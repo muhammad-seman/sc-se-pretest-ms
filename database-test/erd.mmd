@@ -1,0 +1,35 @@
+erDiagram
+    users {
+        int id PK
+        string nama
+        string alamat
+        string no_ktp
+        string no_hp
+        string email
+    }
+    categories {
+        int id PK
+        string nama_kategori
+    }
+    books {
+        int id PK
+        string judul
+        string pengarang
+        string penerbit
+        string isbn
+        int tahun_terbit
+        int jumlah_tersedia
+        int category_id FK
+    }
+    borrowings {
+        int id PK
+        int user_id FK
+        int book_id FK
+        date tanggal_pinjam
+        date tanggal_batas_kembali
+        date tanggal_kembali
+    }
+
+    users ||--o{ borrowings : "melakukan"
+    books ||--o{ borrowings : "dipinjam"
+    categories ||--o{ books : "kategori_dari"
