@@ -1,0 +1,113 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.input-group label {
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 80px;
+  height: 24px;
+  box-sizing: border-box;
+  margin-top: 4px;
+  padding: 0 4px;
+  border: 1px solid #767676;
+}
+
+.generate-btn {
+  margin-top: 10px;
+  padding: 4px 12px;
+  background-color: #efefef;
+  border: 1px solid #767676;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.generate-btn:hover {
+  background-color: #e5e5e5;
+}
+
+.board-container {
+  margin-top: 20px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  max-width: 90vw;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.board-row {
+  display: flex;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  outline: 1px solid #999;
+  outline-offset: -1px;
+}
+
+.square.black {
+  background-color: #000;
+}
+
+.square.white {
+  background-color: #fff;
+}
+
+.knight-icon {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.square.valid-move:hover {
+  background-color: green !important;
+  cursor: pointer;
+}
+
+.square.invalid-move:hover {
+  background-color: red !important;
+  cursor: default;
+}
+
+.square.knight-pos:hover {
+  background-color: red !important;
+  cursor: default;
+}
